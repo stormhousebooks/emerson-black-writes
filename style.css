@@ -1,16 +1,62 @@
 :root {
     --section-margin: 120px;
+    --content-padding: 20px;
+    --primary-color: #F205B3;
+    --secondary-color: #41BDD9;
+    --dark-bg: #060A0D;
+    --light-text: #e0e0e0;
+    --header-bg: rgba(16, 69, 115, 0.9); /* Slightly transparent */
 }
 
 /* Font Imports */
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@400;500;600&display=swap');
 
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Anton', sans-serif;
+    letter-spacing: 1.5px; /* Slightly reduced from current 2px */
+    text-transform: uppercase;
+    font-weight: normal;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300; /* Lighter font weight for body text */
+    line-height: 1.8; /* More spacious line height */
+}
+
+html {
+    font-size: 17px;
+}
+
+* {
+    box-sizing: border-box;
+  }
+
+
 body {
     background-color: #060A0D;
     color: #e0e0e0;
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure body takes full viewport height */
+}
+
+.main-content {
+    flex-grow: 1; /* Make main content expand */
+    padding: var(--section-margin) 0 0 0;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1200px;
+}
+
+section {
+    margin: 0 auto;
+    width: 90%;
+    max-width: 1200px;
+}
+
+.main-content > section:last-child {
+    margin-bottom: var(--section-margin);
 }
 
 a {
@@ -29,7 +75,7 @@ a:hover {
 }
 
 header {
-    background-color: #104573;
+    background-color: var(--header-bg);
     padding: 20px 0;
     text-align: center;
 }
@@ -42,8 +88,8 @@ header h1 {
     margin: 0 auto 10px auto;
     color: #F205B3;
     display: inline-block;
-    font-size: 2.5em; /* Increased font size */
-    line-height: 1.2; /* Adjusted line height */
+    font-size: 2.5em;
+    line-height: 1.2;
 }
 
 header nav {
@@ -51,51 +97,70 @@ header nav {
 }
 
 header nav ul {
-    list-style: none;
-    margin: 10px auto 0 auto;
-    padding: 0;
-    display: inline-block;
+    margin: 15px auto 0 auto;
+    display: flex;
+    justify-content: center;
+    gap: 30px; /* More consistent spacing between items */
 }
 
 header nav li {
-    margin: 0 15px;
+    margin: 0;
     display: inline-block;
 }
 
-.main-content {
-    margin: 0 auto;
+header nav a {
+    position: relative;
+    padding-bottom: 5px;
+}
+
+/* Add subtle underline effect on hover */
+header nav a:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #F205B3;
+    transition: width 0.3s ease;
+}
+
+header nav a:hover:after {
+    width: 100%;
 }
 
 .coming-soon-section {
     display: grid;
     grid-template-columns: 1fr 2fr;
-    gap: 40px;
+    gap: 30px;
     align-items: center;
-    padding: 40px;
-    margin: var(--section-margin) auto;
     text-align: center;
-    width: 80%; /* Limit the width */
-    max-width: 1000px; /* Limit the max width */}
+}
 
 .coming-soon-content {
     text-align: center;
 }
 
-.coming-soon .quote {
+.coming-soon-section .quote {
     font-style: italic;
     margin-bottom: 20px;
     color: #41BDD9;
     font-size: 1.1em;
 }
 
-.coming-soon h3 {
+.coming-soon-section h3 {
     color: #F205B3;
 }
 
-.coming-soon-image {
+.coming-soon-section img {
     max-width: 50%;
     border-radius: 5px;
     margin: 0 auto;
+    transition: transform 0.5s ease;
+}
+
+.coming-soon-section:hover .coming-soon-image {
+    transform: scale(1.05);
 }
 
 .books {
@@ -103,9 +168,10 @@ header nav li {
     margin: var(--section-margin) auto;
     width: 90%;
     max-width: 1000px;
+    margin-bottom: 180px; /* Increase from the current 120px (var(--section-margin)) */
 }
 
-.book-grid-container { 
+.book-grid-container {
     display: flex;
     justify-content: center;
 }
@@ -113,7 +179,7 @@ header nav li {
 .book-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 60px;
+    gap: 80px 60px; /* Increase vertical gap between rows */
     margin-top: 60px;
 }
 
@@ -122,16 +188,23 @@ header nav li {
     display: flex;
     justify-content: center;
     flex-direction: column;
+    align-items: stretch;
+    transition: transform 0.3s ease;
+}
+
+.book:hover {
+    transform: translateY(-10px); /* Subtle lift effect on hover */
 }
 
 .book img {
     max-width: 100%;
     border-radius: 0px;
     margin-bottom: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2); /* Subtle shadow for depth */
 }
 
 .book-grid .book img {
-    max-width: 60%; /* Targeted book cover sizing */
+    max-width: 60%;
 }
 
 .book h3 {
@@ -141,39 +214,43 @@ header nav li {
 
 .book p {
     line-height: 1.6;
-    padding: 0 30px;
+    padding: 0 var(--content-padding);
+    flex-grow: 1;
 }
 
-.book-grid .book p { /*target paragraph in the book grid*/
+.book-grid .book p {
     padding: 0 10px;
 }
 
 .book .button {
-    align-self: flex-start; /* Prevent button stretching */
+    align-self: flex-start;
 }
 
 .button {
-    background-color: #A6087C;
+    background-color: transparent;
+    border: 2px solid #A6087C;
     color: #e0e0e0;
-    padding: 15px 30px;
-    border-radius: 5px;
+    padding: 12px 25px;
+    border-radius: 3px; /* Less rounded */
     text-decoration: none;
-    font-weight: bold;
-    display: inline-block;
-    margin-top: 15px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-size: 0.9rem;
 }
 
 .button:hover {
-    background-color: #F205B3;
+    background-color: #A6087C;
+    color: white;
 }
 
 .novella-button {
-    background-color: #F205B3; /* Novella button background color */
-    color: white; /* Novella button text color */
+    border-color: #F205B3;
 }
 
 .novella-button:hover {
-    background-color: #41BDD9; /* Novella button hover background color */
+    background-color: #F205B3;
 }
 
 .bio {
@@ -186,30 +263,12 @@ header nav li {
     max-width: 1200px;
 }
 
-.bio-image img {
-    max-width: 80%; /* Targeted bio image sizing */
-    border-radius: 25px;
-    display: block;
-    margin: 0 auto;
-}
-
-.bio-text {
-    text-align: left;
-}
-
-.bio-text h2 {
-    margin-bottom: 20px;
-    color: #F205B3;
-}
-
-.bio-text p {
-    line-height: 1.6;
-}    width: 90%;
-    max-width: 1200px;
+.bio-content, .contact-content {
+    padding: var(--content-padding);
 }
 
 .bio-image img {
-    max-width: 80%; /* Targeted bio image sizing */
+    max-width: 80%;
     border-radius: 25px;
     display: block;
     margin: 0 auto;
@@ -235,13 +294,6 @@ header nav li {
     max-width: 1200px;
 }
 
-.bio-content {
-    display: grid;
-    grid-template-columns: 1fr 1.5fr;
-    gap: 60px;
-    align-items: start;
-}
-
 .bio-page .bio-image img {
     max-width: 100%;
     border-radius: 15px;
@@ -257,31 +309,28 @@ header nav li {
     margin-bottom: 20px;
 }
 
-.contact-page {
-    padding: 100px 0;
-    margin: 0 auto;
-    width: 90%;
-    max-width: 1200px;
-    text-align: center;
-}
-
 .contact-content h2 {
     color: #F205B3;
     margin-bottom: 20px;
 }
 
 .contact-content a {
-    color: #41BDD9; /* Link color */
+    color: #41BDD9;
 }
 
 .contact-content a:hover {
-    color: #F205B3; /* Link hover color */
+    color: #F205B3;
 }
 
 footer {
     background-color: #104573;
+    color: white;
     text-align: center;
     padding: 20px 0;
+    width: 100%; /* Ensure footer spans full width */
+    margin: 0;
+    margin-top: auto;  /* Push footer to bottom if content is short */
+    position: relative; /* Ensures proper stacking context */
 }
 
 /* Font Styles */
