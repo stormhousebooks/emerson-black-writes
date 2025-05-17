@@ -5,53 +5,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Emerson Black - Author</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="favicon.png" type="image/png">
+    <link rel="icon" href="img/favicon.png" type="image/png">
 </head>
 <body>
     <header>
         <div class="container">
-            <h1>Emerson Black</h1>
-            <p class="subtitle">MYSTERY AUTHOR</p>
-            <nav>
-                <ul>
-                    <li><a href="bio.html">BIO</a></li>
-                    <li><a href="https://www.amazon.co.uk/stores/author/B0C2NPQDVM/allbooks?" target="_blank">BOOKS</a></li>
-                    <li><a href="contact.html">CONTACT</a></li>
-                </ul>
-            </nav>
+            <div class="header-content">
+                <div class="header-title">
+                    <h1>Emerson Black</h1>
+                    <p class="subtitle">Mystery Author</p>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="bio.html">BIO</a></li>
+                        <li><a href="https://www.amazon.co.uk/stores/author/B0C2NPQDVM/allbooks?" target="_blank">BOOKS</a></li>
+                    </ul>
+                </nav>
+            </div>
         </div>
     </header>
 
     <main class="main-content">
-        <section class="coming-soon-section">
-            <div class="coming-soon-content">
-                <p class="quote">Coming soon...<br>Book 3 in the <i>Seen in Silverbridge</i> series </p>
-                <h3>You Could Be Next</h3>
-            </div>
-            <img src="You-Could-Be-Next_cover.webp" alt="Book 3 - Coming Soon" class="coming-soon-image">
+        <section class="book-series-header">
+            <h2>The Seen in Silverbridge Series</h2>
         </section>
 
         <section class="books">
-            <h2>Seen in Silverbridge series</h2>
             <div class="book-grid-container">
                 <div class="book-grid">
                     <div class="book">
-                        <img src="You-Heard-It-Here-First-ebookcover.webp" alt="Seen in Silverbrdige Book 1">
-                        <h3>You Heard It Here First</h3>
+                        <img src="img/You-Heard-It-Here-First-ebookcover.webp" alt="Seen in Silverbridge Book 1">
+                        <h3>Book 1:<br>You Heard It Here First</h3>
                         <p>Join Luce and Huds on their first accidental murder case, a Swedish rock star who blows up in his hotel suite.</p>
                         <a href="https://amzn.eu/d/2hPym9v" class="button" target="_blank">Buy Book</a>
                     </div>
                     <div class="book">
-                        <img src="You-Should-Have-Said-ebookCover.webp" alt="Book 2">
-                        <h3>You Should Have Said</h3>
+                        <img src="img/You-Should-Have-Said-ebookCover.webp" alt="Seen in Silverbridge Book 2">
+                        <h3>Book 2:<br>You Should Have Said</h3>
                         <p>Luce, Huds, Faven and Rodney are back! This time, a famous actress has gone missing...</p>
                         <a href="https://amzn.eu/d/7QcaE4n" class="button" target="_blank">Buy Book</a>
                     </div>
                     <div class="book">
-                        <img src="A-Student-Has-Drowned-Kindle.webp" alt="A Student Has Drowned Cover">
-                        <h3>A Student Has Drowned (Free Download)</h3>
-                        <p>Sign up to my newsletter and receive a FREE download of the novella.</p>
-                        <a href="https://emersonblackwrites.substack.com/" class="button" target="_blank">Download Now</a>
+                        <img src="img/You-Could-Be-Next_cover.webp" alt="Seen in Silverbridge Book 3">
+                        <h3>Book 3:<br>You Could Be Next</h3>
+                        <p>Coming Soon - The next thrilling installment in the Seen in Silverbridge series</p>
+                        <a href="#" class="button" style="opacity: 0.7; cursor: not-allowed;">Coming Soon</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="books">
+            <h2>Start Your Journey</h2>
+            <div class="book-grid-container">
+                <div class="book-grid" style="grid-template-columns: 1fr;">
+                    <div class="book">
+                        <img src="img/A-Student-Has-Drowned-Kindle.webp" alt="A Student Has Drowned Cover">
+                        <h3>Free Prequel Novella:<br>A Student Has Drowned</h3>
+                        <p>Begin your journey in Silverbridge with this introductory novella. Sign up to the newsletter and receive your FREE download.</p>
+                        <a href="https://emersonblackwrites.substack.com/" class="button" target="_blank">Get Your Free Copy</a>
                     </div>
                 </div>
             </div>
@@ -59,7 +71,8 @@
     </main>
 
     <footer>
-        <p>&copy; 2025 Emerson Black. All rights reserved.</p>
+        <p>&copy; 2025 Emerson Black.<br>
+            Want to get in touch? I'd love to hear from you. <a href="mailto:emerson.black.writes@gmail.com">Email me</a>.</p>
     </footer>
 </body>
 </html>
